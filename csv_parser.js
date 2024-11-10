@@ -63,7 +63,6 @@ async function extractSupplier(originFileName, originFileType) {
     let estforField = columnsOfLineArray[columns.indexOf('estfor')];
     let cepforField = columnsOfLineArray[columns.indexOf('cepfor')];
     let cgcforField = columnsOfLineArray[columns.indexOf('cgcfor')];
-    let ieforField = columnsOfLineArray[columns.indexOf('iefor')];
     let represField = columnsOfLineArray[columns.indexOf('repres')];
     
     objectArray.push({
@@ -75,9 +74,8 @@ async function extractSupplier(originFileName, originFileType) {
       city: cidforField != undefined ? cidforField : null,
       state: estforField != undefined ? estforField : null,
       cep: cepforField != undefined ? cepforField : null,
-      cgcfor: cgcforField != undefined ? cgcforField : null,
-      iefor: ieforField != undefined ? ieforField : null,
-      repres: represField != undefined ? represField : null
+      legalDocument: cgcforField != undefined ? cgcforField : null,
+      representative: represField != undefined ? represField : null
     });
   }
   await fs.writeFile(`${originFileName}.json`, JSON.stringify(objectArray));
